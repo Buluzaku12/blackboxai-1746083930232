@@ -9,37 +9,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="bg-gray-100 font-['Roboto'] min-h-screen flex flex-col items-center p-4">
-  <h1 class="text-3xl font-bold mb-6">Virtual Photobooth</h1>
+<body class="font-['Roboto'] min-h-screen flex flex-col items-center p-6">
+  <h1 class="text-4xl font-extrabold mb-8 drop-shadow-lg">Virtual Photobooth</h1>
 
-  <div class="flex flex-col md:flex-row gap-6 w-full max-w-5xl">
+  <div class="flex flex-col md:flex-row gap-8 w-full max-w-6xl bg-white bg-opacity-20 backdrop-blur-md rounded-3xl shadow-lg p-6">
     <!-- Camera and Canvas Section -->
-    <div class="flex flex-col items-center bg-white rounded-lg shadow p-4 flex-1">
-      <video id="video" autoplay playsinline class="rounded-md border border-gray-300 w-full max-w-md"></video>
-      <canvas id="canvas" class="hidden rounded-md border border-gray-300 mt-4 max-w-md"></canvas>
+    <div class="flex flex-col items-center bg-white bg-opacity-90 rounded-2xl shadow-xl p-6 flex-1">
+      <video id="video" autoplay playsinline class="rounded-xl border border-gray-300 w-full max-w-lg shadow-md"></video>
+      <canvas id="canvas" class="hidden rounded-xl border border-gray-300 mt-6 max-w-lg shadow-md"></canvas>
 
-      <div class="mt-4 flex gap-4">
-        <button id="captureBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+      <div class="mt-6 flex gap-5">
+        <button id="captureBtn" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition shadow-lg flex items-center gap-3">
           <i class="fas fa-camera"></i> Ambil Foto
         </button>
-        <label for="uploadInput" class="bg-green-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-green-700 transition flex items-center gap-2">
+        <label for="uploadInput" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-xl cursor-pointer hover:from-green-600 hover:to-emerald-700 transition shadow-lg flex items-center gap-3">
           <i class="fas fa-upload"></i> Upload Foto
           <input type="file" id="uploadInput" accept="image/*" class="hidden" />
         </label>
-        <button id="downloadBtn" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition" disabled>
+        <button id="downloadBtn" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-6 py-3 rounded-xl hover:from-purple-600 hover:to-violet-700 transition shadow-lg flex items-center gap-3" disabled>
           <i class="fas fa-download"></i> Download
+        </button>
+        <button id="deleteBtn" class="bg-gradient-to-r from-red-500 to-rose-600 text-white px-6 py-3 rounded-xl hover:from-red-600 hover:to-rose-700 transition shadow-lg flex items-center gap-3" disabled>
+          <i class="fas fa-trash"></i> Hapus Foto
         </button>
       </div>
 
-      <div class="mt-4 w-full max-w-md">
-        <input type="text" id="textInput" placeholder="Tambah teks lucu..." class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <div class="mt-6 w-full max-w-lg">
+        <input type="text" id="textInput" placeholder="Tambah teks lucu..." class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-4 focus:ring-indigo-400 shadow-sm" />
       </div>
     </div>
 
     <!-- Frame Selection Section -->
-    <div class="bg-white rounded-lg shadow p-4 w-64 flex flex-col items-center">
-      <h2 class="text-xl font-semibold mb-4">Pilih Template Frame</h2>
-      <div id="framesContainer" class="flex flex-col gap-4 overflow-y-auto max-h-96 w-full">
+    <div class="bg-white bg-opacity-90 rounded-2xl shadow-xl p-6 w-72 flex flex-col items-center">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Pilih Template Frame</h2>
+      <div id="framesContainer" class="flex flex-col gap-5 overflow-y-auto max-h-[24rem] w-full">
         <!-- Frame thumbnails will be dynamically added here -->
       </div>
     </div>
