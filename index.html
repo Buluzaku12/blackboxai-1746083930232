@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virtual Photobooth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-gray-100 font-['Roboto'] min-h-screen flex flex-col items-center p-4">
+  <h1 class="text-3xl font-bold mb-6">Virtual Photobooth</h1>
+
+  <div class="flex flex-col md:flex-row gap-6 w-full max-w-5xl">
+    <!-- Camera and Canvas Section -->
+    <div class="flex flex-col items-center bg-white rounded-lg shadow p-4 flex-1">
+      <video id="video" autoplay playsinline class="rounded-md border border-gray-300 w-full max-w-md"></video>
+      <canvas id="canvas" class="hidden rounded-md border border-gray-300 mt-4 max-w-md"></canvas>
+
+      <div class="mt-4 flex gap-4">
+        <button id="captureBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          <i class="fas fa-camera"></i> Ambil Foto
+        </button>
+        <label for="uploadInput" class="bg-green-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-green-700 transition flex items-center gap-2">
+          <i class="fas fa-upload"></i> Upload Foto
+          <input type="file" id="uploadInput" accept="image/*" class="hidden" />
+        </label>
+        <button id="downloadBtn" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition" disabled>
+          <i class="fas fa-download"></i> Download
+        </button>
+      </div>
+
+      <div class="mt-4 w-full max-w-md">
+        <input type="text" id="textInput" placeholder="Tambah teks lucu..." class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+    </div>
+
+    <!-- Frame Selection Section -->
+    <div class="bg-white rounded-lg shadow p-4 w-64 flex flex-col items-center">
+      <h2 class="text-xl font-semibold mb-4">Pilih Template Frame</h2>
+      <div id="framesContainer" class="flex flex-col gap-4 overflow-y-auto max-h-96 w-full">
+        <!-- Frame thumbnails will be dynamically added here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/camera.js"></script>
+  <script src="assets/js/editor.js"></script>
+</body>
+</html>
